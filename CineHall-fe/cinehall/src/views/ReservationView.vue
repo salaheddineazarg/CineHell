@@ -90,13 +90,12 @@ export default {
         "http://localhost/CineHall-be/read/reservation/"+this.id)
       .then((response) => (this.reserved = response.data));
 
-
-  },
-  created(){
-          if(!(localStorage.getItem("user"))){
+      if(!(localStorage.getItem("user"))){
             Swal.fire("You Should Login First");
            this.$router.push('/Login')
           }
+
+
   },
 
 

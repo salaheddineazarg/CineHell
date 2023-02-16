@@ -13,6 +13,14 @@ export default {
   navBar,
   Footer,
  },
+ mounted() {
+    window.addEventListener('beforeunload', this.handleBeforeUnload);
+  },
+  methods: {
+    handleBeforeUnload() {
+      localStorage.clear();
+    }
+  },
  created(){
     this.logout=localStorage.getItem('loggedIn')=='true'
     if(this.logout){

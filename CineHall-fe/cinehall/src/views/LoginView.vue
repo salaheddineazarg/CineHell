@@ -16,7 +16,7 @@
           <div  data-aos="fade-left"
             class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none"
           >
-            <h3 class="pt-4 text-2xl text-center">Login!</h3>
+            <h3 class="pt-4 text-2xl text-center">Login</h3>
             <form
               @submit.prevent="submitForm"
               class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
@@ -72,7 +72,7 @@
               </div>
               <div class="text-center">
                 <router-link to="/Register">
-                  Already have an account? Login!
+                  Already have an account? Register!
                 </router-link>
               </div>
             </form>
@@ -106,8 +106,8 @@ export default {
     
       if (response.data) {
         console.log(response.data);
-        
-       
+         this.$router.push("/");
+        window.location.reload();
         localStorage.setItem("user",JSON.stringify(response.data));
         localStorage.setItem("loggedIn", true);
 
@@ -120,8 +120,7 @@ export default {
         });
         
        
-        this.$router.push("/");
-       window.location.reload();
+      
       } else {
         
         console.log(response.data.message);
